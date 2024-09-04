@@ -1,0 +1,29 @@
+name: C++ CI
+
+on:
+  pull_request:
+    paths:
+      - '**/*.cpp'
+      - '**/*.h'
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up C++ environment
+        uses: actions/setup-cpp@v1
+
+      - name: Build and Test
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
+          make test

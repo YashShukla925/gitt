@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: "cpp"
+    directory: "/"  # Location of your dependency files
+    schedule:
+      interval: "daily"  # Check for updates daily
+    commit-message:
+      prefix: "Update"
